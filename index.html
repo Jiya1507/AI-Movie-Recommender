@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="AI Movie and Series Recommender powered by TMDB.">
+<title>ReelPick — Movie & Series Recommender</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="ReelPick home"><span class="brand-mark">R</span><span>ReelPick</span></a>
+  <nav class="nav" aria-label="Main navigation"><a href="#discover">Discover</a><a href="#results-section">For You</a><a href="#streaming-wrap">Streaming</a></nav>
+  <button class="nav-search" type="button" aria-label="Focus search" onclick="document.getElementById('search').focus()"><span>Search</span><kbd>/</kbd></button>
+</header>
+
+<main id="top">
+<section class="hero" id="discover">
+  <div class="hero-bg" id="hero-bg"></div><div class="hero-shade"></div>
+  <div class="hero-content" data-aos="fade-up" data-aos-duration="650">
+    <span class="eyebrow">YOUR NEXT WATCH STARTS HERE</span>
+    <h1>Find something <em>worth watching.</em></h1>
+    <p>Search a title you love or choose a mood. We’ll surface movies and series you’ll actually want to watch.</p>
+    <div class="search-shell">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+      <input type="search" id="search" autocomplete="off" placeholder="Search movies or series…" aria-label="Search movies or series">
+      <button id="search-btn" type="button">Search</button>
+    </div>
+  </div>
+</section>
+
+<section class="control-bar" data-aos="fade-up" data-aos-delay="80">
+  <div class="control-inner">
+    <div class="genre-area"><span class="control-label">Explore by genre</span><div class="genre-list">
+      <button class="genre-btn" data-genre="28">Action</button><button class="genre-btn" data-genre="35">Comedy</button><button class="genre-btn" data-genre="18">Drama</button><button class="genre-btn" data-genre="878">Sci‑Fi</button><button class="genre-btn" data-genre="27">Horror</button><button class="genre-btn" data-genre="10749">Romance</button><button class="genre-btn" data-genre="99">Documentary</button>
+    </div></div>
+    <button id="recommend-btn" class="recommend-btn" type="button">Refresh picks <span>↗</span></button>
+  </div>
+</section>
+
+<div class="content-wrap">
+  <section id="results-section" class="hidden content-section" aria-live="polite" data-aos="fade-up">
+    <div class="section-head"><div><span class="section-kicker">CURATED FOR YOU</span><h2>Recommended picks</h2></div>
+      <label class="sort-control"><span>Sort</span><select id="sort-by"><option value="popularity">Popularity</option><option value="rating" selected>Rating</option><option value="newest">Newest</option></select></label>
+    </div>
+    <div id="recommendations" class="movie-grid"></div>
+  </section>
+
+  <section id="streaming-wrap" class="content-section streaming-wrap" data-aos="fade-up">
+    <div class="section-head"><div><span class="section-kicker">WHAT’S POPULAR</span><h2>Streaming & Indian picks</h2></div></div>
+    <div id="streaming-section" class="streaming-sections" aria-live="polite"></div>
+  </section>
+</div>
+</main>
+<footer><a class="brand footer-brand" href="#top"><span class="brand-mark">R</span><span>ReelPick</span></a><p>Movie discovery powered by live TMDB data.</p><a href="#top">Back to top ↑</a></footer>
+
+<div id="loading" class="hidden loading" aria-label="Loading"><div class="loader"></div></div>
+<div id="movie-modal" class="hidden modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-panel"><button id="close-modal" class="modal-close" type="button" aria-label="Close movie details">×</button><div id="movie-modal-content" class="modal-content"></div></div></div>
+<script src="config.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script><script src="app.js"></script>
+</body></html>
